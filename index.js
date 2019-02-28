@@ -1,24 +1,19 @@
-var fs = require('fs');
+const JsonIn = require('./input_models/json');
+const JsonOut = require('./output_models/json');
 
-fs.readFile('input_datas/test1.json', function (readErr, data) {
-    if (readErr) {
-        process.stderr.write(readErr.message);
+const request = './data/request/test.json';
+const response = './data/response/test.json';
+
+JsonIn.getDataObj(request, function (err, dataObj) {
+    if (err) {
+        process.stderr.write(err.message);
         process.exitCode = 1;
     }
 
-    try {
-        var dataObj = JSON.parse(data);
-    } catch (parseErr) {
-        process.stderr.write(parseErr.message);
-        process.exitCode = 1;
-    }
-
-    fs.writeFile('output_datas/test1.json', JSON.stringify(dataObj), function (writeErr) {
-        if (writeErr) {
-            process.stderr.write(writeErr.message);
+    JsonOut.setDataObj(response, dataObj, function (err) {
+        if (err) {
+            process.stderr.write(err.message);
             process.exitCode = 1;
         }
-
-        process.exitCode = 0;
     });
 });
