@@ -1,5 +1,5 @@
-const JsonIn = require('./input_models/json');
-const JsonOut = require('./output_models/json');
+const JsonIn = require('./libs/input_modules/json');
+const JsonOut = require('./libs/output_modules/json');
 const MiddlewareManager = require('./middlewares/interface');
 
 const srcPath = './data/request/request.json';
