@@ -1,10 +1,21 @@
+'use strict';
+
+const Args = require('minimist')(process.argv.slice(2));
+
 const JsonIn = require('./libs/input_modules/json');
 const JsonOut = require('./libs/output_modules/json');
 const MiddlewareManager = require('./middlewares/interface');
 
-const srcPath = './data/request/request.json';
-const desPath = './data/response/response.json';
-const ruleSet = ['rule1', 'rule2'];
+if (Args.h || Args.help) {
+    process.stdout.write("Usage: node index.js --src PATH --dest PATH --rules rule1,rule2,...");
+    process.exitCode = 0;
+}
+
+var srcPath, desPath, ruleSet;
+
+srcPath = Args.src;
+desPath = Args.dest;
+ruleSet = Args.rules.split(',');
 
 JsonIn.getDataObj(srcPath, function (readErr, dataObj) {
     if (readErr) {
