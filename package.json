@@ -1,0 +1,28 @@
+{
+  "name": "shopback_assignment",
+  "version": "1.0.0",
+  "description": "ShihGangLiu's ShopBack assignment",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^6.0.2",
+    "chai": "^4.2.0"
+  },
+  "scripts": {
+    "test": "mocha "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shihgangliu/shopback_assignment.git"
+  },
+  "author": "ShihGangLiu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shihgangliu/shopback_assignment/issues"
+  },
+  "homepage": "https://github.com/shihgangliu/shopback_assignment#readme"
+}
