@@ -1,10 +1,10 @@
 module.exports = {
-    handle: function (dataObj, callback) {
-        if ('GET' == dataObj.method) {
+    handle: function (handledObj, callback) {
+        if ('GET' == handledObj.getMethod()) {
             var sbreferer;
 
             try {
-                sbreferer = dataObj.headers.Referer;
+                sbreferer = handledObj.getHeader('Referer');
             } catch (err) {
                 return callback(new Error('Oh, there is no referer in headers.'));
             }
@@ -13,5 +13,7 @@ module.exports = {
                 return callback(new Error('Oh, the header referer is invalid.'));
             }
         }
+
+        callback(null, handledObj);
     }
 };

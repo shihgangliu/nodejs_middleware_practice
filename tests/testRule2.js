@@ -5,6 +5,7 @@ const Base = require('./base');
 describe('Test rule2', function () {
     it('Test request without header cookie', function () {
         Base.runApp(
+            'json',
             './tests/request_data/rule2_without_cookie.json',
             ['rule2'],
             function (err, dataObj) {
@@ -15,6 +16,7 @@ describe('Test rule2', function () {
 
     it('Test request with invalid header cookie', function () {
         Base.runApp(
+            'json',
             './tests/request_data/rule2_with_invalid_cookie.json',
             ['rule2'],
             function (err, dataObj) {
@@ -25,6 +27,7 @@ describe('Test rule2', function () {
 
     it('Test request with header cookie', function () {
         Base.runApp(
+            'json',
             './tests/request_data/rule2_with_cookie.json',
             ['rule2'],
             function (err, dataObj) {

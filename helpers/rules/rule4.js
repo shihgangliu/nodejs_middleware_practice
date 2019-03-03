@@ -1,13 +1,12 @@
 module.exports = {
-    handle: function (dataObj, callback) {
-        if ('GET' == dataObj.method && dataObj.url.indexOf('/shopback/api/') > -1) {
-            if ('undefined' == typeof dataObj.headers) {
-                dataObj.headers = { From: "hello@shopback.com" };
-            } else {
-                dataObj.headers.From = "hello@shopback.com";
-            }
+    handle: function (handledObj, callback) {
+        if (
+            'GET' == handledObj.getMethod() &&
+            handledObj.getUrl().indexOf('/shopback/api/') > -1
+        ) {
+            sbfrom = handledObj.setHeader('From', "hello@shopback.com");
         }
 
-        callback(null, dataObj);
+        callback(null, handledObj);
     }
 };

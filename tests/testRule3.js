@@ -5,6 +5,7 @@ const Base = require('./base');
 describe('Test rule3', function () {
     it('Test request without header referer', function () {
         Base.runApp(
+            'json',
             './tests/request_data/without_headers.json',
             ['rule3'],
             function (err, dataObj) {
@@ -15,6 +16,7 @@ describe('Test rule3', function () {
 
     it('Test request with invalid header referer', function () {
         Base.runApp(
+            'json',
             './tests/request_data/rule3_with_invalid_referer.json',
             ['rule3'],
             function (err, dataObj) {
@@ -25,6 +27,7 @@ describe('Test rule3', function () {
 
     it('Test request with valid header referer', function () {
         Base.runApp(
+            'json',
             './tests/request_data/rule3_with_valid_referer.json',
             ['rule3'],
             function (err, dataObj) {

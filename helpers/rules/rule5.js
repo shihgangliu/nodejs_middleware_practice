@@ -1,9 +1,12 @@
 module.exports = {
-    handle: function (dataObj, callback) {
-        if ('POST' == dataObj.method || 'PUT' == dataObj.method) {
-            dataObj.url = dataObj.url.replace(/(\?.+)/, '');
+    handle: function (handledObj, callback) {
+        var url = handledObj.getUrl();
+        var method = handledObj.getMethod();
+
+        if ('POST' == method || 'PUT' == method) {
+            handledObj.setUrl(url.replace(/(\?.+)/, ''));
         }
 
-        callback(null, dataObj);
+        callback(null, handledObj);
     }
 };

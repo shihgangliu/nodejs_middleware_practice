@@ -65,6 +65,10 @@ JsonHandler.prototype.setHeaders = function setUrl(headers) {
 };
 
 JsonHandler.prototype.setHeader = function setHeader(name, value) {
+    if ('undefined' == typeof this.jsonObj.headers) {
+        this.jsonObj.headers = {};
+    }
+
     this.jsonObj.headers[name] = value;
 };
 

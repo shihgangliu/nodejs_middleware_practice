@@ -1,10 +1,13 @@
 module.exports = {
-    handle: function (dataObj, callback) {
+    handle: function (handledObj, callback) {
         var sbcookie;
 
-        if ('GET' == dataObj.method && dataObj.url.indexOf('/shopback/me') > -1) {
+        if (
+            'GET' == handledObj.getMethod() &&
+            handledObj.getUrl().indexOf('/shopback/me') > -1
+        ) {
             try {
-                sbcookie = dataObj.headers.Cookie;
+                sbcookie = handledObj.getHeader('Cookie');
             } catch (err) {
                 return callback(new Error('Oh, no cookie exists.'));
             }
@@ -14,7 +17,7 @@ module.exports = {
             });
         }
 
-        callback(null, dataObj);
+        callback(null, handledObj);
     },
 
     parseCookies: function (cookieObj, callback) {
