@@ -1,20 +1,20 @@
-const Json = require('../libs/input_modules/json');
-const MiddlewareManager = require('../middlewares/interface');
+const IOHandler = require('../helpers/IOHandler/base');
+const RulesManager = require('../helpers/rules/base');
 
 module.exports = {
-    runApp: function (filepath, ruleSet, callback) {
-        Json.getDataObj(filepath, function (readErr, dataObj) {
-            if (readErr) {
-                return callback(readErr);
-            }
+    runApp: function (type, source, ruleSet, callback) {
+        try {
+            var request = (new IOHandler()).getRequest(type, source);
 
-            MiddlewareManager.setRules(ruleSet, dataObj, function (rulesErr, handledDataObj) {
-                if (rulesErr) {
-                    return callback(rulesErr);
+            RulesManager.setRules(ruleSet, request, function (err, handledRequest) {
+                if (err) {
+                    return callback(err);
                 }
 
-                callback(null, handledDataObj);
+                callback(null, handledRequest.getHandledObj());
             });
-        });
+        } catch (handlederr) {
+            callback(handlederr);
+        }
     }
 };

@@ -2,38 +2,26 @@
 
 const Args = require('minimist')(process.argv.slice(2));
 
-const JsonIn = require('./libs/input_modules/json');
-const JsonOut = require('./libs/output_modules/json');
-const MiddlewareManager = require('./middlewares/interface');
+const IOHandler = require('./helpers/IOHandler/base');
+const RulesManager = require('./helpers/rules/base');
 
 if (Args.h || Args.help) {
     process.stdout.write("Usage: node index.js --src PATH --dest PATH --rules rule1,rule2,...");
     process.exitCode = 0;
 }
 
-var srcPath, desPath, ruleSet;
+try {
+    var request = (new IOHandler()).getRequest(Args.type, Args.source);
 
-srcPath = Args.src;
-desPath = Args.dest;
-ruleSet = Args.rules.split(',');
-
-JsonIn.getDataObj(srcPath, function (readErr, dataObj) {
-    if (readErr) {
-        process.stderr.write(readErr.message);
-        process.exitCode = 1;
-    }
-
-    MiddlewareManager.setRules(ruleSet, dataObj, function (rulesErr, handledDataObj) {
-        if (rulesErr) {
-            process.stderr.write(rulesErr.message);
+    RulesManager.setRules(Args.rules.split(','), request, function (err, handledRequest) {
+        if (err) {
+            process.stderr.write(err.message);
             process.exitCode = 1;
         }
 
-        JsonOut.setDataObj(desPath, handledDataObj, function (writeErr) {
-            if (writeErr) {
-                process.stderr.write(writeErr.message);
-                process.exitCode = 1;
-            }
-        });
+        (new IOHandler()).setResponse(Args.type, Args.destination, handledRequest.getHandledObj());
     });
-});
+} catch (err) {
+    process.stderr.write(err);
+    process.exitCode = 1;
+}
