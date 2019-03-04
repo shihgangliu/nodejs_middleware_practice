@@ -3,6 +3,20 @@ const Assert = require('chai').assert;
 const Base = require('./base');
 
 describe('Test rule1', function () {
+    it('Test wrong domain', function () {
+        Base.runApp(
+            'json',
+            './tests/request_data/invalid_hostname.json',
+            ['rule1'],
+            function (err, dataObj) {
+                Assert.equal(
+                    "This library only allow shopback host!",
+                    err.message
+                );
+            }
+        );
+    })
+
     it('Test wrong type', function () {
         Base.runApp(
             'xml',
@@ -48,7 +62,6 @@ describe('Test rule1', function () {
             './tests/request_data/without_headers.json',
             ['rule1'],
             function (err, dataObj) {
-                console.log(err);
                 Assert.typeOf(dataObj.headers['X-SHOPBACK-TIMESTAMP'], 'number');
                 Assert.equal('http://www.shopback.com/shopback/static/assets?q=1', dataObj.url);
             }

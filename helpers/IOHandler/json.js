@@ -28,6 +28,14 @@ JsonHandler.prototype.getUrl = function getUrl() {
     }
 };
 
+JsonHandler.prototype.getUrlObj = function getUrlObj() {
+    try {
+        return new URL(this.jsonObj.url);
+    } catch (err) {
+        return false;
+    }
+};
+
 JsonHandler.prototype.getMethod = function getMethod() {
     try {
         return this.jsonObj.method;

@@ -1,6 +1,11 @@
 module.exports = {
     setRules: function (rules, dataObj, callback) {
         var hasError = false;
+        var urlObj = dataObj.getUrlObj();
+
+        if ('www.shopback.com' != urlObj.hostname) {
+            return callback(new Error('This library only allow shopback host!'));
+        }
 
         if (!Array.isArray(rules)) {
             return callback(new Error('Oh, rules parameter must be array!'));
