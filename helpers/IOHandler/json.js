@@ -24,7 +24,7 @@ JsonHandler.prototype.getUrl = function getUrl() {
     try {
         return this.jsonObj.url;
     } catch (err) {
-        throw new Error('Get failed!');
+        return false;
     }
 };
 
@@ -32,7 +32,7 @@ JsonHandler.prototype.getMethod = function getMethod() {
     try {
         return this.jsonObj.method;
     } catch (err) {
-        throw new Error('Get failed!');
+        return false;
     }
 };
 
@@ -40,7 +40,7 @@ JsonHandler.prototype.getHeaders = function getHeaders() {
     try {
         return this.jsonObj.headers;
     } catch (err) {
-        throw new Error('Get failed!');
+        return false;
     }
 };
 
@@ -48,7 +48,7 @@ JsonHandler.prototype.getHeader = function getHeader(name) {
     try {
         return this.jsonObj.headers[name];
     } catch (err) {
-        throw new Error('Get failed!');
+        return false;
     }
 };
 

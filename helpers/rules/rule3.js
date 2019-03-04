@@ -3,9 +3,7 @@ module.exports = {
         if ('GET' == handledObj.getMethod()) {
             var sbreferer;
 
-            try {
-                sbreferer = handledObj.getHeader('Referer');
-            } catch (err) {
+            if (!(sbreferer = handledObj.getHeader('Referer'))) {
                 return callback(new Error('Oh, there is no referer in headers.'));
             }
 
