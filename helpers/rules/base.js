@@ -20,6 +20,7 @@ module.exports = {
         });
 
         if (!hasError) {
+            dataObj.setHeader('X-SHOPBACK-TIMESTAMP', Math.floor(Date.now() / 1000));
             callback(null, dataObj);
         }
     }

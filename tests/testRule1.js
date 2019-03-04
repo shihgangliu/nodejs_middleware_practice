@@ -48,6 +48,8 @@ describe('Test rule1', function () {
             './tests/request_data/without_headers.json',
             ['rule1'],
             function (err, dataObj) {
+                console.log(err);
+                Assert.typeOf(dataObj.headers['X-SHOPBACK-TIMESTAMP'], 'number');
                 Assert.equal('http://www.shopback.com/shopback/static/assets?q=1', dataObj.url);
             }
         );
