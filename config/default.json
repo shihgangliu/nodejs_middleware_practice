@@ -1,0 +1,16 @@
+{
+    "Request": {
+        "type": "json",
+        "path": "../data/request.json"
+    },
+    "Response": {
+        "type": "json",
+        "path": "../data/response.json"
+    },
+    "Rules":{
+        "whitelist": "rule1, rule3"
+    },
+    "X-SHOPBACK-AGENT": {
+        "allow": "AGENT_1"
+    }
+}

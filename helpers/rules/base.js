@@ -6,7 +6,7 @@ module.exports = {
             return callback(new Error('Oh, rules parameter must be array!'));
         }
 
-        rules.forEach(function (item, index, array) {
+        rules.forEach(function (item) {
             var Rule = require("./" + item);
 
             Rule.handle(dataObj, function (err, handledDataObj) {
