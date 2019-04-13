@@ -1,7 +1,7 @@
 {
-    "url":"http://www.shopback.com/shopback/search?k1=v1&k2=v2&k3=v3",
+    "url":"http://www.example.com//search?k1=v1&k2=v2&k3=v3",
     "method":"DELETE",
     "headers":{
-        "X-SHOPBACK-AGENT":"AGENT_2"
+        "X-AGENT":"AGENT_2"
     }
 }

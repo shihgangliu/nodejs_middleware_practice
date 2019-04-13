@@ -20,7 +20,7 @@ describe('Test rule8', function () {
             './tests/request_data/rule8_with_allow_agent.json',
             ['rule8'],
             function (err, dataObj) {
-                Assert.equal('AGENT_1', dataObj.headers['X-SHOPBACK-AGENT']);
+                Assert.equal('AGENT_1', dataObj.headers['X-AGENT']);
             }
         );
     })

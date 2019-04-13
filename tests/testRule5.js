@@ -9,7 +9,7 @@ describe('Test rule5', function () {
             './tests/request_data/rule5.json',
             ['rule5'],
             function (err, dataObj) {
-                Assert.equal('http://www.shopback.com/shopback/search', dataObj.url);
+                Assert.equal('http://www.example.com/search', dataObj.url);
             }
         );
     })

@@ -4,7 +4,7 @@ module.exports = {
 
         if (
             'GET' == handledObj.getMethod() &&
-            handledObj.getUrl().indexOf('/shopback/me') > -1
+            handledObj.getUrl().indexOf('/me') > -1
         ) {
             if (!(sbcookie = handledObj.getHeader('Cookie'))) {
                 return callback(new Error('Oh, no cookie exists.'));

@@ -10,7 +10,7 @@ describe('Test rule1', function () {
             ['rule1'],
             function (err, dataObj) {
                 Assert.equal(
-                    "This library only allow shopback host!",
+                    "This library only allow host!",
                     err.message
                 );
             }
@@ -62,8 +62,8 @@ describe('Test rule1', function () {
             './tests/request_data/without_headers.json',
             ['rule1'],
             function (err, dataObj) {
-                Assert.typeOf(dataObj.headers['X-SHOPBACK-TIMESTAMP'], 'number');
-                Assert.equal('http://www.shopback.com/shopback/static/assets?q=1', dataObj.url);
+                Assert.typeOf(dataObj.headers['X-TIMESTAMP'], 'number');
+                Assert.equal('http://www.example.com/static/assets?q=1', dataObj.url);
             }
         );
     })

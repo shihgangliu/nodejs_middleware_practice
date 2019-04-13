@@ -10,7 +10,7 @@
     "Rules":{
         "whitelist": "rule1, rule3"
     },
-    "X-SHOPBACK-AGENT": {
+    "X-AGENT": {
         "allow": "AGENT_1"
     }
 }

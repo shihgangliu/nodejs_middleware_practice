@@ -7,7 +7,7 @@ module.exports = {
                 return callback(new Error('Oh, there is no referer in headers.'));
             }
 
-            if (sbreferer.indexOf('www.shopback.com') < 0) {
+            if (sbreferer.indexOf('www.example.com') < 0) {
                 return callback(new Error('Oh, the header referer is invalid.'));
             }
         }

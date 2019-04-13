@@ -9,7 +9,7 @@ describe('Test rule4', function () {
             './tests/request_data/rule4.json',
             ['rule4'],
             function (err, dataObj) {
-                Assert.equal('hello@shopback.com', dataObj.headers.From);
+                Assert.equal('hello@example.com', dataObj.headers.From);
             }
         );
     })

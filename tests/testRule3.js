@@ -31,7 +31,7 @@ describe('Test rule3', function () {
             './tests/request_data/rule3_with_valid_referer.json',
             ['rule3'],
             function (err, dataObj) {
-                Assert.equal('http://www.shopback.com/shopback/me', dataObj.url);
+                Assert.equal('http://www.example.com/me', dataObj.url);
             }
         );
     })

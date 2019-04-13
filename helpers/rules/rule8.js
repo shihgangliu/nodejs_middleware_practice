@@ -4,10 +4,10 @@ module.exports = {
     handle: function (handledObj, callback) {
         if ('DELETE' == handledObj.getMethod()) {
             var sbAgent;
-            var allowAgent = Config.get('X-SHOPBACK-AGENT.allow');
+            var allowAgent = Config.get('X-AGENT.allow');
 
-            if (!(sbAgent = handledObj.getHeader('X-SHOPBACK-AGENT'))) {
-                throw new Error('X-SHOPBACK-AGENT doesn\'t exist!');
+            if (!(sbAgent = handledObj.getHeader('X-AGENT'))) {
+                throw new Error('X-AGENT doesn\'t exist!');
             }
 
             if ('' == allowAgent || ('*' != allowAgent && allowAgent.indexOf(sbAgent) < 0)) {

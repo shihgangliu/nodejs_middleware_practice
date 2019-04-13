@@ -3,8 +3,8 @@ module.exports = {
         var hasError = false;
         var urlObj = dataObj.getUrlObj();
 
-        if ('www.shopback.com' != urlObj.hostname) {
-            return callback(new Error('This library only allow shopback host!'));
+        if ('www.example.com' != urlObj.hostname) {
+            return callback(new Error('This library only allow host!'));
         }
 
         if (!Array.isArray(rules)) {
@@ -25,7 +25,7 @@ module.exports = {
         });
 
         if (!hasError) {
-            dataObj.setHeader('X-SHOPBACK-TIMESTAMP', Math.floor(Date.now() / 1000));
+            dataObj.setHeader('X-TIMESTAMP', Math.floor(Date.now() / 1000));
             callback(null, dataObj);
         }
     }

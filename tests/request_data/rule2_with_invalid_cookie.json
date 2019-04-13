@@ -1,7 +1,7 @@
 {
-    "url":"http://www.shopback.com/shopback/me",
+    "url":"http://www.example.com/me",
     "method":"GET",
     "headers":{
-        "Cookie":"company=shopback, assignment"
+        "Cookie":"company=, assignment"
     }
 }

@@ -3,8 +3,8 @@ module.exports = {
         var method = handledObj.getMethod();
 
         if ('POST' == method || 'PUT' == method) {
-            if (!handledObj.getHeader('X-SHOPBACK-AGENT')) {
-                throw new Error('X-SHOPBACK-AGENT doesn\'t exist!');
+            if (!handledObj.getHeader('X-AGENT')) {
+                throw new Error('X-AGENT doesn\'t exist!');
             }
         }
 
