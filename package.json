@@ -1,7 +1,7 @@
 {
-  "name": "shopback_assignment",
+  "name": "nodejs_middleware_practice",
   "version": "1.0.0",
-  "description": "ShihGangLiu's ShopBack assignment",
+  "description": "nodejs_middleware_practice",
   "main": "index.js",
   "directories": {
     "test": "tests"
