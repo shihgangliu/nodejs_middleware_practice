@@ -19,12 +19,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shihgangliu/shopback_assignment.git"
+    "url": "git+https://github.com/shihgangliu/nodejs_middleware_practice.git"
   },
   "author": "ShihGangLiu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shihgangliu/shopback_assignment/issues"
+    "url": "https://github.com/shihgangliu/nodejs_middleware_practice/issues"
   },
-  "homepage": "https://github.com/shihgangliu/shopback_assignment#readme"
+  "homepage": "https://github.com/shihgangliu/nodejs_middleware_practice#readme"
 }
