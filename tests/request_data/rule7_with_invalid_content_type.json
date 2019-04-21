@@ -1,5 +1,5 @@
 {
-    "url":"http://www..com//search?k1=v1&k2=v2&k3=v3",
+    "url":"http://www.example.com/search?k1=v1&k2=v2&k3=v3",
     "method":"POST",
     "headers":{
         "Content-Type":"text/html"

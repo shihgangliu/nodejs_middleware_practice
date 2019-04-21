@@ -4,7 +4,7 @@ module.exports = {
             'GET' == handledObj.getMethod() &&
             handledObj.getUrl().indexOf('/api/') > -1
         ) {
-            sbfrom = handledObj.setHeader('From', "hello@.com");
+            handledObj.setHeader('From', "hello@example.com");
         }
 
         callback(null, handledObj);

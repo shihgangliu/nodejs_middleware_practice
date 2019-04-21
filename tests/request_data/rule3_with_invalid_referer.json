@@ -1,7 +1,7 @@
 {
-    "url":"http://www..com//me",
+    "url":"http://www.example.com/me",
     "method":"GET",
     "headers":{
-        "Referer":"https://www..org"
+        "Referer":"https://www.example.org"
     }
 }
